@@ -3,12 +3,14 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  /* background-color: #f1f1f1; Fundo cinza para toda a aplicação */
 }
 
 .content {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: #f1f1f1;
 }
 
 /* Estilização do Placar */
@@ -180,6 +182,69 @@ body {
   /* Ajusta a posição na zona de defesa */
 }
 
+
+
+
+/* Estilo para o título do painel de ação do atleta */
+.painel-titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.painel-titulo h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+/* Estilo para o painel de botões, incluindo a área onde o título está */
+.painel-fundamento {
+  width: 100%;
+  height: 300px; /* Ajuste conforme necessário */
+  background-color: #f1f1f1;
+  padding-top: 20px; /* Adicionando um pouco de espaçamento no topo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+}
+
+/* Estilo para o grid de botões */
+.painel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 botões por linha */
+  gap: 10px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.painel-botao {
+  font-size: 14px;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Estilizando o botão de voltar para a quadra */
+.btn-voltar-quadra {
+  margin-top: 20px; /* Ajuste a distância para a separação desejada */
+  padding: 10px 20px; /* Ajuste o tamanho do botão */
+  background-color: #3f51b5; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-voltar-quadra:hover {
+  background-color: #303f9f; /* Cor ao passar o mouse */
+}
 
 
 
