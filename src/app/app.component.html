@@ -1,0 +1,78 @@
+<div class="app-container">
+  <!-- Barra de navegação -->
+  <mat-toolbar color="primary">
+    <span>Scout Técnico de Vôlei</span>
+  </mat-toolbar>
+
+  <div class="content">
+    <!-- Placar -->
+    <div class="placar">
+      <h3>Placar</h3>
+      <div class="times">
+        <!-- Time A -->
+        <div class="time">
+          <span>Time A</span>
+          <div class="botoes">
+            <button mat-mini-fab color="accent" (click)="incrementarPontos('A')">+</button>
+            <button mat-mini-fab color="warn" (click)="decrementarPontos('A')">-</button>
+          </div>
+        </div>
+
+        <!-- Painel de Pontuação -->
+        <div class="painel-pontos">
+          <span>{{ pontosA | number: '2.0' }} x {{ pontosB | number: '2.0' }}</span>
+        </div>
+
+        <!-- Time B -->
+        <div class="time">
+          <span>Time B</span>
+          <div class="botoes">
+            <button mat-mini-fab color="accent" (click)="incrementarPontos('B')">+</button>
+            <button mat-mini-fab color="warn" (click)="decrementarPontos('B')">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade de Fundamentos -->
+    <div class="fundamentos">
+      <h3>Fundamentos</h3>
+      <div class="grid-fundamentos">
+        <button mat-raised-button color="primary">Saque</button>
+        <button mat-raised-button color="accent">Passe</button>
+        <button mat-raised-button color="warn">Levantamento</button>
+        <button mat-raised-button color="primary">Ataque</button>
+        <button mat-raised-button color="accent">Bloqueio</button>
+        <button mat-raised-button color="warn">Defesa</button>
+        <button mat-raised-button color="primary">Cobertura</button>
+        <button mat-raised-button color="accent">Erro</button>
+      </div>
+    </div>
+
+    <!-- Simulação da Quadra (Lado de um Time) -->
+    <div class="quadra">
+      <h3>Posição dos Atletas</h3>
+      <div class="meia-quadra">
+        <!-- Linha de Zona de Ataque -->
+        <div class="linha-ataque"></div>
+
+        <!-- Time A - Zona de Ataque e Defesa -->
+        <div class="time">
+          <!-- Atletas na Zona de Ataque (frente) -->
+          <button class="atleta zona-ataque" style="top: 15%; left: 10%;" (click)="posicionarAtleta('A1')">A1</button>
+          <button class="atleta zona-ataque" style="top: 15%; left: 40%;" (click)="posicionarAtleta('A2')">A2</button>
+          <button class="atleta zona-ataque" style="top: 15%; left: 70%;" (click)="posicionarAtleta('A3')">A3</button>
+
+          <!-- Atletas na Zona de Defesa (atrás da linha de ataque) -->
+          <button class="atleta zona-defesa" style="bottom: 15%; left: 10%;"
+            (click)="posicionarAtleta('B1')">B1</button>
+          <button class="atleta zona-defesa" style="bottom: 15%; left: 40%;"
+            (click)="posicionarAtleta('B2')">B2</button>
+          <button class="atleta zona-defesa" style="bottom: 15%; left: 70%;"
+            (click)="posicionarAtleta('B3')">B3</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

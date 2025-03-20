@@ -1,0 +1,230 @@
+/* Corpo e Container Principal */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Estilização do Placar */
+.placar {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.placar h3 {
+  font-size: 18px;
+  /* Diminuí o tamanho */
+  margin-bottom: 10px;
+}
+
+.times {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.botoes {
+  display: flex;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.painel-pontos {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 15px;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+
+/* Estilização da Grade de Fundamentos */
+.fundamentos {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.fundamentos h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Responsividade: Botões menores e organizados */
+.grid-fundamentos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  /* Mantemos 4 colunas */
+  gap: 5px;
+  /* Reduzimos o espaçamento */
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-fundamentos button {
+  min-width: 80px;
+  /* Reduzimos a largura mínima */
+  height: 45px;
+  /* Altura menor */
+  font-size: 12px;
+  /* Texto menor */
+  font-weight: 600;
+  /* Mantemos um destaque no texto */
+  padding: 5px;
+  /* Ajustamos o espaçamento interno */
+  text-align: center;
+}
+
+
+/* Estilização da Quadra */
+.quadra {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+}
+
+.quadra h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.meia-quadra {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #e0e0e0;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+/* Linha da Zona de Ataque Centralizada */
+.linha-ataque {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  top: 50%;
+  /* Centraliza a linha na altura da quadra */
+  transform: translateY(-50%);
+  /* Ajuste para garantir que a linha fique no meio exato */
+}
+
+/* Estilo para o Time A (Zona de Ataque) */
+.time-a {
+  position: absolute;
+  top: 15%;
+  /* Time A acima da linha de ataque */
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Estilo para o Time B (Zona de Defesa) */
+.time-b {
+  position: absolute;
+  bottom: 15%;
+  /* Time B abaixo da linha de ataque */
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Estilo para os Botões dos Atletas */
+.atleta {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3f51b5;
+  color: white;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.atleta:hover {
+  transform: scale(1.1);
+}
+
+/* Zona de Ataque */
+.zona-ataque {
+  position: absolute;
+  top: 15%;
+  /* Ajusta a posição na zona de ataque */
+}
+
+/* Zona de Defesa */
+.zona-defesa {
+  position: absolute;
+  bottom: 15%;
+  /* Ajusta a posição na zona de defesa */
+}
+
+
+
+
+/* Estilos para o Menu de Navegação */
+.menu {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.mat-fab {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Media Queries para Responsividade em Smartphones */
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+
+  .placar,
+  .fundamentos,
+  .simulacao-quadra {
+    font-size: 14px;
+    padding: 15px;
+  }
+
+  .scores {
+    font-size: 16px;
+  }
+
+  .menu {
+    bottom: 10px;
+  }
+
+  .mat-fab {
+    width: 50px;
+    height: 50px;
+  }
+}
