@@ -29,46 +29,52 @@
     </div>
 
     <!-- Grade de Fundamentos -->
-<div class="grid-fundamentos">
-  <button mat-raised-button color="primary" (click)="exibirAcaoAtleta('Saque')">Saque</button>
-  <button mat-raised-button color="accent" (click)="exibirAcaoAtleta('Passe')">Passe</button>
-  <button mat-raised-button color="warn" (click)="exibirAcaoAtleta('Levantamento')">Levantamento</button>
-  <button mat-raised-button color="primary" (click)="exibirAcaoAtleta('Ataque')">Ataque</button>
-  <button mat-raised-button color="accent" (click)="exibirAcaoAtleta('Bloqueio')">Bloqueio</button>
-  <button mat-raised-button color="warn" (click)="exibirAcaoAtleta('Defesa')">Defesa</button>
-  <button mat-raised-button color="primary" (click)="exibirAcaoAtleta('Cobertura')">Cobertura</button>
-  <button mat-raised-button color="accent" (click)="exibirAcaoAtleta('Erro')">Erro</button>
-</div>
+    <div class="grid-fundamentos">
+      <button mat-raised-button color="primary" (click)="selecionarFundamento('Saque')">Saque</button>
+      <button mat-raised-button color="accent" (click)="selecionarFundamento('Passe')">Passe</button>
+      <button mat-raised-button color="warn" (click)="selecionarFundamento('Levantamento')">Levantamento</button>
+      <button mat-raised-button color="primary" (click)="selecionarFundamento('Ataque')">Ataque</button>
+      <button mat-raised-button color="accent" (click)="selecionarFundamento('Bloqueio')">Bloqueio</button>
+      <button mat-raised-button color="warn" (click)="selecionarFundamento('Defesa')">Defesa</button>
+      <button mat-raised-button color="primary" (click)="selecionarFundamento('Cobertura')">Cobertura</button>
+      <button mat-raised-button color="accent" (click)="selecionarFundamento('Erro')">Erro</button>
+    </div>
 
 
-    <!-- Painel da Quadra (exibido por padrão) -->
     <div *ngIf="painelVisivel === 'quadra'" class="quadra">
       <h3>Posição dos Atletas</h3>
       <div class="meia-quadra">
         <div class="linha-ataque"></div>
-        <div class="time">
-          <button class="atleta zona-ataque" style="top: 20%; left: 10%;" (click)="posicionarAtleta('A1')">A1</button>
-          <button class="atleta zona-ataque" style="top: 20%; left: 40%;" (click)="posicionarAtleta('A2')">A2</button>
-          <button class="atleta zona-ataque" style="top: 20%; left: 70%;" (click)="posicionarAtleta('A3')">A3</button>
-          <button class="atleta zona-ataque" style="top: 65%; left: 10%;" (click)="posicionarAtleta('A4')">A4</button>
-          <button class="atleta zona-ataque" style="top: 65%; left: 40%;" (click)="posicionarAtleta('A5')">A5</button>
-          <button class="atleta zona-ataque" style="top: 65%; left: 70%;" (click)="posicionarAtleta('A6')">A6</button>
-        </div>
+    
+        <!-- Renderiza atletas dinamicamente -->
+        <button 
+          *ngFor="let atleta of atletasTitulares" 
+          class="atleta"
+          [ngClass]="'posicao-' + atleta.posicao"
+          (click)="posicionarAtleta(atleta.nome)">
+          {{ atleta.numero }}
+        </button>
+    
       </div>
     </div>
+    
+
 
     <!-- Painel de Ação do Atleta (exibido quando algum fundamento é clicado) -->
+    <!-- Painel da Ação do Atleta -->
     <div *ngIf="painelVisivel === 'acao'" class="painel-fundamento">
       <div class="painel-titulo">
         <h3>Ação do Atleta</h3>
       </div>
       <div class="painel-grid">
-        <button mat-raised-button *ngFor="let i of [1, 2, 3, 4]" class="painel-botao" (click)="voltarParaQuadra()">Botão {{ i }}</button>
-        <button mat-raised-button *ngFor="let i of [5, 6, 7, 8]" class="painel-botao" (click)="voltarParaQuadra()">Botão {{ i }}</button>
-        <button mat-raised-button *ngFor="let i of [9, 10, 11, 12]" class="painel-botao" (click)="voltarParaQuadra()">Botão {{ i }}</button>
+        <button mat-raised-button *ngFor="let acao of acoesDisponiveis" class="painel-botao"
+          (click)="voltarParaQuadra()">
+          {{ acao }}
+        </button>
       </div>
       <!-- Botão de Voltar para a Quadra -->
       <button class="btn-voltar-quadra" (click)="voltarParaQuadra()">Voltar para a Quadra</button>
     </div>
+
   </div>
 </div>

@@ -3,9 +3,9 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* background-color: #f1f1f1; Fundo cinza para toda a aplicação */
 }
 
+/* Container Principal */
 .content {
   display: flex;
   flex-direction: column;
@@ -24,7 +24,6 @@ body {
 
 .placar h3 {
   font-size: 18px;
-  /* Diminuí o tamanho */
   margin-bottom: 10px;
 }
 
@@ -56,7 +55,65 @@ body {
   border: 2px solid #ccc;
 }
 
-/* Estilização da Grade de Fundamentos */
+/* Estilo para a meia-quadra */
+.meia-quadra {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #e0e0e0;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+/* Linha da Zona de Ataque Centralizada */
+.linha-ataque {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Ajuste para as zonas de ataque e defesa */
+.zona-ataque, .zona-defesa {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Estilo para os botões de atletas */
+.atleta {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #3f51b5;
+  color: white;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.atleta:hover {
+  transform: scale(1.1);
+}
+
+/* 🔥 Posicionamento Dinâmico dos Atletas 🔥 */
+
+/* Zona de Ataque */
+.posicao-4 { top: 10%; left: 15%; }
+.posicao-3 { top: 10%; left: 50%;  margin-left: -25px; }
+.posicao-2 { top: 10%; right: 15%; }
+
+/* Zona de Defesa */
+.posicao-5 { bottom: 10%; left: 15%; }
+.posicao-6 { bottom: 10%; left: 50%;  margin-left: -25px; }
+.posicao-1 { bottom: 10%; right: 15%; }
+
+/* 🎯 **PAINEL DE FUNDAMENTOS (Restaurado!)** 🎯 */
 .fundamentos {
   text-align: center;
   margin-bottom: 10px;
@@ -74,118 +131,32 @@ body {
 .grid-fundamentos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* Mantemos 4 colunas */
   gap: 5px;
-  /* Reduzimos o espaçamento */
   justify-content: center;
   align-items: center;
 }
 
 .grid-fundamentos button {
   min-width: 80px;
-  /* Reduzimos a largura mínima */
   height: 45px;
-  /* Altura menor */
   font-size: 12px;
-  /* Texto menor */
   font-weight: 600;
-  /* Mantemos um destaque no texto */
   padding: 5px;
-  /* Ajustamos o espaçamento interno */
   text-align: center;
 }
 
-
-/* Estilização da Quadra */
-.quadra {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 15px;
-  background-color: #f1f1f1;
-  border-radius: 8px;
-}
-
-.quadra h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-}
-
-.meia-quadra {
-  position: relative;
+/* 🔥 PAINEL DE AÇÃO DO ATLETA (Restaurado!) 🔥 */
+.painel-fundamento {
   width: 100%;
   height: 300px;
-  background-color: #e0e0e0;
-  border: 2px solid #333;
+  background-color: #f1f1f1;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-radius: 8px;
 }
 
-/* Linha da Zona de Ataque Centralizada */
-.linha-ataque {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background-color: #333;
-  top: 50%;
-  /* Centraliza a linha na altura da quadra */
-  transform: translateY(-50%);
-  /* Ajuste para garantir que a linha fique no meio exato */
-}
-
-/* Estilo para o Time A (Zona de Ataque) */
-.time-a {
-  position: absolute;
-  top: 15%;
-  /* Time A acima da linha de ataque */
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-/* Estilo para o Time B (Zona de Defesa) */
-.time-b {
-  position: absolute;
-  bottom: 15%;
-  /* Time B abaixo da linha de ataque */
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
-
-/* Estilo para os Botões dos Atletas */
-.atleta {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #3f51b5;
-  color: white;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.atleta:hover {
-  transform: scale(1.1);
-}
-
-/* Zona de Ataque */
-.zona-ataque {
-  position: absolute;
-  top: 15%;
-  /* Ajusta a posição na zona de ataque */
-}
-
-/* Zona de Defesa */
-.zona-defesa {
-  position: absolute;
-  bottom: 15%;
-  /* Ajusta a posição na zona de defesa */
-}
-
-
-
-
-/* Estilo para o título do painel de ação do atleta */
 .painel-titulo {
   text-align: center;
   margin-bottom: 20px;
@@ -198,22 +169,10 @@ body {
   margin: 0;
 }
 
-/* Estilo para o painel de botões, incluindo a área onde o título está */
-.painel-fundamento {
-  width: 100%;
-  height: 300px; /* Ajuste conforme necessário */
-  background-color: #f1f1f1;
-  padding-top: 20px; /* Adicionando um pouco de espaçamento no topo */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-}
-
-/* Estilo para o grid de botões */
+/* Grade dos botões */
 .painel-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 botões por linha */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
   padding: 0 10px;
@@ -222,19 +181,18 @@ body {
 .painel-botao {
   font-size: 14px;
   height: 50px;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
-
 
 /* Estilizando o botão de voltar para a quadra */
 .btn-voltar-quadra {
-  margin-top: 20px; /* Ajuste a distância para a separação desejada */
-  padding: 10px 20px; /* Ajuste o tamanho do botão */
-  background-color: #3f51b5; /* Cor de fundo */
-  color: white; /* Cor do texto */
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #3f51b5;
+  color: white;
   font-size: 14px;
   border: none;
   border-radius: 5px;
@@ -243,12 +201,10 @@ body {
 }
 
 .btn-voltar-quadra:hover {
-  background-color: #303f9f; /* Cor ao passar o mouse */
+  background-color: #303f9f;
 }
 
-
-
-/* Estilos para o Menu de Navegação */
+/* Menu de Navegação */
 .menu {
   display: flex;
   justify-content: space-around;
@@ -267,7 +223,7 @@ body {
   justify-content: center;
 }
 
-/* Media Queries para Responsividade em Smartphones */
+/* Media Queries para Responsividade */
 @media (max-width: 768px) {
   .content {
     padding: 10px;

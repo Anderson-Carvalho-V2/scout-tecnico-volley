@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FundamentoService } from './fundamento.service'
+import { AtletaService } from './atleta.service';
+
 
 @Component({
   selector: 'app-root',
@@ -14,10 +17,27 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   pontosA = 0;
   pontosB = 0;
   painelVisivel: string = 'quadra'; // 'quadra' será o painel padrão, e 'acao' será o painel de "Ação do Atleta"
+  acoesDisponiveis: string[] = [];
+  atletas:any = [];  // Aqui vamos armazenar os atletas
+  atletasTitulares:any = [];  // Apenas os atletas titulares
+  atletasReservas:any = [];  // Apenas os atletas reservas
+
+  constructor(private fundamentoService: FundamentoService, private atletaService: AtletaService) {}
+
+  ngOnInit() {
+    // Obtendo todos os atletas
+    this.atletasTitulares = this.atletaService.getAtletasTitulares();
+    this.atletasReservas = this.atletaService.getAtletasReservas();
+  }
+
+  selecionarFundamento(fundamento: any): void {
+    this.acoesDisponiveis = this.fundamentoService.getAcoesPorFundamento(fundamento);
+    this.painelVisivel = 'acao'; // Troca o painel
+  }
 
   // Função para incrementar os pontos
   incrementarPontos(time: string): void {
@@ -57,8 +77,10 @@ export class AppComponent {
     this.painelVisivel = 'quadra'; // Volta para o painel da quadra
   }
 
-  // Função para posicionar os atletas na quadra
-  posicionarAtleta(atleta: string): void {
-    console.log(`Posicionando o atleta ${atleta}`);
+   // Método para manipular a ação quando o botão de um atleta for clicado
+   posicionarAtleta(nome: string) {
+    console.log(`${nome} foi posicionado na quadra!`);
   }
+
+  
 }
